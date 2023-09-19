@@ -14,8 +14,10 @@ boxes.style.alignItems = "end";
 boxes.style.flexWrap = "wrap";
 boxes.style.gap = "4px";
 
+let size = 30;
+
 const createBoxes = amount => {
-  let size = 30;
+  amount = parseInt(input.value, 10);
 
   for (let i = 0; i < amount; i += 1) {
     const box = document.createElement("div");
@@ -28,13 +30,11 @@ const createBoxes = amount => {
   };
 };
 
-buttonCreate.addEventListener("click", () => {
-  const amount = parseInt(input.value, 10);
-  createBoxes(amount);
-});
+buttonCreate.addEventListener("click", createBoxes);
 
 const destroyBoxes = () => {
   boxes.innerHTML = "";
+  size = 30;
 };
 
 buttonDestroy.addEventListener("click", destroyBoxes);
